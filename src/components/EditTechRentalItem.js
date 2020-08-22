@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { Component } from "react";
 
-export default function EditTechRentalItem() {
-    return (
-        <div>
-            
-        </div>
-    )
+class EditTechRentalItem extends Component {
+  render() {
+    return(
+    <form></form>)
+  }
 }
+
+export default EditTechRentalItem;
