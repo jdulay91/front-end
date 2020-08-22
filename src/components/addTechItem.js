@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class addTechItem extends Component {
+class AddTechItem extends Component {
     state={
         tech:{
             dunno: 'dunno what structure you guys want'
@@ -16,8 +16,11 @@ class addTechItem extends Component {
     }
     
     onSubmit= (e) => {
-
+        e.preventDefault()
+        // axiosCallgoesHere (post req)
+        // set res to addTech(res..)
     }
+
     render() {
         return (
             <div>
@@ -27,4 +30,4 @@ class addTechItem extends Component {
     }
 }
 
-export default addTechItem
+export default AddTechItem
