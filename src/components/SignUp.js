@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function SignUp() {
+ const SignUp = () => {
     return (
-        <div>
-            
-        </div>
+        <h1>
+            This is the sign up page            
+        </h1>
     )
 }
+
+export default SignUp
