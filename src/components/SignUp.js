@@ -1,11 +1,33 @@
-import React from 'react'
+import React, { Component } from "react";
+import { axiosWithAuth } from "../utils/axiosAuth";
 
- const SignUp = () => {
-    return (
-        <h1>
-            This is the sign up page            
-        </h1>
-    )
+class SignUp extends Component {
+  state = {
+    name: "",
+    username: "",
+    email: "",
+    password: "",
+  };
+
+  handleChange = (e) => {
+    this.setState({
+      state: {
+        ...this.state,
+        [e.target.name]: e.target.value,
+      },
+    });
+  };
+
+  signup = (e) => {
+    e.preventDefault();
+    axiosWithAuth()
+      .put("", this.state)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+  render() {
+    return <form></form>;
+  }
 }
 
-export default SignUp
+export default SignUp;

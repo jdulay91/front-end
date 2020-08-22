@@ -1,11 +1,39 @@
-import React from 'react'
+import React, { Component } from "react";
+import { axiosWithAuth } from "../utils/axiosAuth";
 
-const Login = () => {
-    return(
-        <h1>
-            This is the Log in page
-        </h1>
-    )
+export class Login extends Component {
+  state = {
+    credentials: {
+      username: "",
+      password: "",
+    },
+  };
+
+  handleChange = (e) => {
+    this.setState({
+      credentials: {
+        ...this.state.credentials,
+        [e.target.name]: e.target.value,
+      },
+    });
+  };
+
+  login = (e) => {
+    e.preventDefault();
+    axiosWithAuth()
+      .post("#", this.state.credentials)
+      .then((res) => {
+        localStorage.setItem("token", {});
+        this.props.history.push("/");
+      })
+      .catch((err) => {
+        console.log("ErrorERRORerror", err);
+      });
+  };
+
+  render() {
+    return <form></form>;
+  }
 }
 
-export default Login
+export default Login;
