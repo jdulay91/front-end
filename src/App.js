@@ -14,7 +14,7 @@ const App = () => {
       <Header />
       <Route path="/login" component={Login} /> 
       <Route path="/signup" component={SignUp}/>
-      <PrivateRoute path="/" component={TechRentalList}/>    
+      <PrivateRoute path="/tech" component={TechRentalList}/>    
     </>
   );
 };
