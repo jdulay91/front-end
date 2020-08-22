@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { axiosWithAuth } from "../utils/axiosAuth";
+// import { axiosWithAuth } from "../utils/axiosAuth";
 
 class SignUp extends Component {
   state = {
@@ -18,13 +18,13 @@ class SignUp extends Component {
     });
   };
 
-  signup = (e) => {
-    e.preventDefault();
-    axiosWithAuth()
-      .put("", this.state)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  };
+  // signup = (e) => {
+  //   e.preventDefault();
+  //   // axiosWithAuth()
+  //   //   .put("", this.state)
+  //   //   .then((res) => console.log(res))
+  //   //   .catch((err) => console.log(err));
+  // };
   render() {
     return <form></form>;
   }
