@@ -5,7 +5,7 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import PrivateRoute from "./components/PrivateRoute";
 import TechRentalList from "./components/TechRentalList";
-import AddTechItem from './components/AddTechItem'
+import AddTechItem from "./components/AddTechItem"
 import EditTechRentalItem from "./components/EditTechRentalItem";
 
 
