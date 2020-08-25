@@ -10,7 +10,7 @@ export default function Header() {
       <br/>
       <Link to="/addtech">Add Tech</Link>
       <br/>
-      <Link to="/techlist">Tech Equipment</Link>
+      <Link to="/techlist">Tech List</Link>
     </React.Fragment>
   );
 }

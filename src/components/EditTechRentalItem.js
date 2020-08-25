@@ -1,31 +1,57 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from 'react';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { useHistory, useParams } from 'react-router-dom'
 
-class EditTechRentalItem extends Component {
-  state={
-    tech:{
-        dunno: 'dunno what structure you guys want'
-    }
-}
-onChange =(e) => {
-    this.setState({
-        tech:{
-            ...this.state.tech,
-            [e.target.name]:e.target.value
-        }
+const initialState = {
+  techName: '',
+  description: '',
+  condition: '',
+  price: ''
+};
+
+function EditTechRentalItem(props) {
+  const { id } = useParams()
+  const history = useHistory()
+  const [tech, setTech] = useState(initialState)
+
+  useEffect(()=>{
+    axiosWithAuth()
+    .get(`/tech/${id}`)
+    .then((res)=>{
+      setTech(res.data)
     })
-}
+  },[id])
 
-onSubmit= (e) => {
-    e.preventDefault()
-    // axiosCallgoesHere (put req)
-    // set res to 
-}
+	const onChange = (e) => {
+		setTech({
+      ...tech,
+			[e.target.name]: e.target.value
+		});
+  };
+  
+	const changeTech = (e) => {
+		e.preventDefault();
+		axiosWithAuth()
+			.put(`/tech/${id}`, tech)
+			.then((res) => {
+				setTech(tech)			
+			});
+		history.push('/techlist');
+  };
+  
+  
 
 
-  render() {
-    return(
-    <form></form>)
-  }
+		return (
+			<form onSubmit={changeTech}>
+				<input type='text' name='techName' placeholder='Tech Equipment' value={tech.techName} onChange={onChange} />
+				<input type='text' name='description' placeholder='Tech Description' value={tech.description} onChange={onChange} />
+				<input type='text' name='condition' placeholder='Tech Condition' value={tech.condition} onChange={onChange} />
+				<input type='text' name='price' placeholder='Tech Price' value={tech.price} onChange={onChange} />
+				<button>Submit Tech</button>
+			</form>
+		);
+
 }
 
 export default EditTechRentalItem;
